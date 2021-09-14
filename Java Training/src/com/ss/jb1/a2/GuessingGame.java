@@ -1,7 +1,7 @@
 /**
  * A number guessing game
  */
-package com.ss.jb.atwo;
+package com.ss.jb1.a2;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;

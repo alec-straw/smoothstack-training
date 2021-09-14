@@ -1,7 +1,7 @@
 /**
  * Prints patterns using loops
  */
-package com.ss.jb.aone;
+package com.ss.jb1.a1;
 
 /**
  * @author alecs
