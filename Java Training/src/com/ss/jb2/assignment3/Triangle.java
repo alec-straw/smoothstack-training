@@ -15,9 +15,14 @@ public class Triangle implements Shape {
 	
 	//constructor given three side lengths
 	Triangle(Double s1, Double s2, Double s3){
-		side1 = s1;
-		side2 = s2;
-		side3 = s3;
+		if( s1+s2 > s3 && s2+s3>s1 && s1+s3>s2) {
+			side1 = s1;
+			side2 = s2;
+			side3 = s3;
+		}
+		else {
+			throw new IllegalArgumentException ("Sides: " + s1 + ", " + s2 + ", " + s3 + " do not add up to triangle");
+		}
 	}
 	
 	//constructs equilateral triangle 
@@ -28,8 +33,8 @@ public class Triangle implements Shape {
 	@Override
 	//calculates area with Herons formula
 	public Double calculateArea() {
-		Double semiPerimeter = (side1 + side2 + side3) / 2.0;
-		return Math.sqrt(semiPerimeter*(semiPerimeter - side1)*(semiPerimeter - side2)*(semiPerimeter - side3));
+		Double semiPerim = (side1 + side2 + side3) / 2.0;
+		return Math.sqrt( semiPerim*(semiPerim - side1)*(semiPerim - side2)*(semiPerim - side3));
 	}
 
 	@Override

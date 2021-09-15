@@ -8,6 +8,6 @@ package com.ss.jb2.assignment3;
  *
  */
 public interface Shape {
-	Double calculateArea();
-	void display();
+	public Double calculateArea();
+	public void display();
 }

@@ -27,6 +27,7 @@ public class Circle implements Shape{
 		System.out.println("Circle:");
 		System.out.println("Radius: " + radius);
 		System.out.println("Diameter: " + 2.0*radius);
+		System.out.println("Circumference: " + 2.0*radius*Math.PI);
 		
 	}
 
