@@ -16,15 +16,15 @@ public class LoopingPatterns {
 		StringBuilder stars = new StringBuilder("");
 		StringBuilder spaces = new StringBuilder("");
 		StringBuilder periods = new StringBuilder(".........");
-		for(Integer count = 1; count <= 4; count++) {
+		for (Integer count = 1; count <= 4; count++) {
 			System.out.println(count + ")");
 			if (count == 3) {
 				spaces.append("     ");
 				stars.append("*");
 			}
-			if(count == 2 || count == 4)
+			if (count == 2 || count == 4)
 				System.out.println(periods);
-			for(Integer level = 1; level <= 4; level++) {
+			for (Integer level = 1; level <= 4; level++) {
 				switch (count) {
 				case 1:
 					stars.append('*');
@@ -46,11 +46,11 @@ public class LoopingPatterns {
 					break;
 				}
 			}
-			if(count == 1 || count == 3)
+			if (count == 1 || count == 3)
 				System.out.println(periods);
 			periods.append('.');
 		}
-		
+
 	}
 
 }

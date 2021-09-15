@@ -12,11 +12,11 @@ import java.io.File;
 public class ListDirectories {
 
 	final private String directory;
-	
-	ListDirectories(String dir){
+
+	ListDirectories(String dir) {
 		directory = dir;
 	}
-	
+
 	void listDirectories() {
 		File file;
 		try {
@@ -24,15 +24,13 @@ public class ListDirectories {
 			if (!file.isDirectory()) {
 				System.out.println("");
 			}
-		}
-		catch(NullPointerException e) {
-			
+		} catch (NullPointerException e) {
+
 		}
 	}
-	
+
 	/**
-	 * @param args
-	 * list directory from command argument
+	 * @param args list directory from command argument
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

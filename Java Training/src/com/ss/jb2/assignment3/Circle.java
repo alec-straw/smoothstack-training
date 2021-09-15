@@ -4,20 +4,19 @@
 package com.ss.jb2.assignment3;
 
 /**
- * @author alecs
- * a circle defined by a radius
+ * @author alecs a circle defined by a radius
  */
-public class Circle implements Shape{
+public class Circle implements Shape {
 
-	Double radius;
-	
-	//constructs a Circle given a radius
-	Circle (Double r){
+	private Double radius;
+
+	// constructs a Circle given a radius
+	Circle(Double r) {
 		radius = r;
 	}
-	
+
 	@Override
-	//calculates and returns area
+	// calculates and returns area
 	public Double calculateArea() {
 		return Math.PI * radius * radius;
 	}
@@ -26,9 +25,8 @@ public class Circle implements Shape{
 	public void display() {
 		System.out.println("Circle:");
 		System.out.println("Radius: " + radius);
-		System.out.println("Diameter: " + 2.0*radius);
-		System.out.println("Circumference: " + 2.0*radius*Math.PI);
-		
+		System.out.println("Diameter: " + 2.0 * radius);
+		System.out.println("Circumference: " + 2.0 * radius * Math.PI);
 	}
 
 }

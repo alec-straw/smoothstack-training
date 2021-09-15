@@ -9,5 +9,6 @@ package com.ss.jb2.assignment3;
  */
 public interface Shape {
 	public Double calculateArea();
+
 	public void display();
 }

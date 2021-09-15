@@ -13,13 +13,12 @@ public class CmdLineSum {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 		double sum = 0;
-		for(String str : args) {
+		for (String str : args) {
 			try {
 				sum += Double.parseDouble(str);
-			}
-			catch(NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				System.out.println("Skipping invalid input");
 			}
 		}

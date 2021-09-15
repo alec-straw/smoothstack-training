@@ -19,14 +19,13 @@ public class TestingClass {
 		shapes[2] = new Triangle(2.0);
 		try {
 			shapes[3] = new Triangle(2.0, 2.0, 4.0);
-		}
-		catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			shapes[3] = new Triangle(2.0, 2.0, 3.0);
 		}
 		shapes[4] = new Rectangle(2.0);
 		shapes[5] = new Rectangle(2.0, 3.0);
-		for(Shape myShape : shapes) {
+		for (Shape myShape : shapes) {
 			myShape.display();
 			System.out.println("Area: " + myShape.calculateArea());
 			System.out.println();
