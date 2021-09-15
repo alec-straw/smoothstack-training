@@ -13,19 +13,30 @@ public class ListDirectories {
 
 	final private String directory;
 
+	// constructor to save directory
 	ListDirectories(String dir) {
 		directory = dir;
 	}
 
+	// method to list directories recursively
 	void listDirectories() {
 		File file;
 		try {
 			file = new File(directory);
-			if (!file.isDirectory()) {
-				System.out.println("");
+			if (!file.exists()) {
+				System.out.println("Path does not exist");
+				System.exit(0);
 			}
+			if (file.isDirectory()) {
+				System.out.println("Directory: " + file.getName());
+				for (File path : file.listFiles()) {
+					ListDirectories list = new ListDirectories(path.getPath());
+					list.listDirectories();
+				}
+			} else
+				System.out.println("File: " + file.getName());
 		} catch (NullPointerException e) {
-
+			System.out.println("null arguement provied to listDirectories");
 		}
 	}
 
@@ -33,9 +44,12 @@ public class ListDirectories {
 	 * @param args list directory from command argument
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		ListDirectories list = new ListDirectories(args[0]);
-		list.listDirectories();
+		if (args.length == 0) {
+			System.out.println("Accepts first command line argument as directory");
+		} else {
+			ListDirectories list = new ListDirectories(args[0]);
+			list.listDirectories();
+		}
 	}
 
 }

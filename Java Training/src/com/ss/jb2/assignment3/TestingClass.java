@@ -1,5 +1,5 @@
 /**
- * 
+ * testing Shape interface and classes
  */
 package com.ss.jb2.assignment3;
 
