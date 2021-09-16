@@ -1,9 +1,12 @@
 /**
- * list folder and all files and subdirectories
+ * list folder and all files and sub-directories
  */
 package com.ss.jb3.assignment1;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Scanner;
 
 /**
  * @author alecs
@@ -11,30 +14,25 @@ import java.io.File;
  */
 public class ListDirectories {
 
-	final private String directory;
-
-	// constructor to save directory
-	ListDirectories(String dir) {
-		directory = dir;
-	}
 
 	// method to list directories recursively
-	void listDirectories() {
-		File file;
+	public void listDirectories(String directory) {
+		Path path;
 		try {
-			file = new File(directory);
-			if (!file.exists()) {
+			path = Path.of(directory);
+			if (!Files.exists(path)) {
 				System.out.println("Path does not exist");
 				System.exit(0);
 			}
-			if (file.isDirectory()) {
-				System.out.println("Directory: " + file.getName());
-				for (File path : file.listFiles()) {
-					ListDirectories list = new ListDirectories(path.getPath());
-					list.listDirectories();
+			if (Files.isDirectory(path)) {
+				System.out.println("Directory: " + path.getFileName());
+				// list sub-directories
+				for (File subPath : path.toFile().listFiles()) {
+					ListDirectories list = new ListDirectories();
+					list.listDirectories(subPath.getPath());
 				}
 			} else
-				System.out.println("File: " + file.getName());
+				System.out.println("File: " + path.getFileName());
 		} catch (NullPointerException e) {
 			System.out.println("null arguement provied to listDirectories");
 		}
@@ -44,12 +42,15 @@ public class ListDirectories {
 	 * @param args list directory from command argument
 	 */
 	public static void main(String[] args) {
-		if (args.length == 0) {
-			System.out.println("Accepts first command line argument as directory");
-		} else {
-			ListDirectories list = new ListDirectories(args[0]);
-			list.listDirectories();
+		
+		System.out.println("Enter path: ");
+		try (Scanner input = new Scanner(System.in)) {
+			ListDirectories list = new ListDirectories();
+			list.listDirectories(input.next());
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
 	}
 
 }
