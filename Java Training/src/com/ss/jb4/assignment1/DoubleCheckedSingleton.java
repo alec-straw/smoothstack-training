@@ -1,5 +1,5 @@
 /**
- * 
+ * a double checked singleton class
  */
 package com.ss.jb4.assignment1;
 

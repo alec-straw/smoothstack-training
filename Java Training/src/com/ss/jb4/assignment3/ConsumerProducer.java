@@ -1,5 +1,5 @@
 /**
- * producer and consumer
+ * producer and consumer until arbitrary stopping point of 20
  */
 package com.ss.jb4.assignment3;
 
@@ -7,7 +7,6 @@ import java.util.LinkedList;
 
 /**
  * @author alecs
- *
  */
 public class ConsumerProducer {
 
@@ -20,16 +19,15 @@ public class ConsumerProducer {
 	public static void main(String[] args) {
 		final int stoppingPoint = 20;
 		final int capacity = 4;
+		// removes and prints value from list
 		Runnable consumer = new Runnable() {
 			@Override
 			public void run() {
 				while (true) {
 					synchronized (this) {
 						try {
-							while (buffer.isEmpty()) {
+							while (buffer.isEmpty())
 								Thread.sleep(1000);
-								;
-							}
 							Integer value = buffer.getFirst();
 							System.out.println("Consuming " + value);
 							buffer.remove();
@@ -44,16 +42,15 @@ public class ConsumerProducer {
 				}
 			}
 		};
+		// adds value to list if it is not full
 		Runnable producer = new Runnable() {
 			@Override
 			public void run() {
 				while (count <= stoppingPoint) {
 					synchronized (this) {
 						try {
-							while (buffer.size() >= capacity) {
+							while (buffer.size() >= capacity)
 								Thread.sleep(1000);
-								;
-							}
 							System.out.println("Producing " + count);
 							buffer.add(count++);
 						} catch (InterruptedException e) {
