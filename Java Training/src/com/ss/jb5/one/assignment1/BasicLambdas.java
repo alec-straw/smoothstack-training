@@ -3,8 +3,8 @@
  */
 package com.ss.jb5.one.assignment1;
 
-/*import java.util.Arrays;
-import java.util.stream.Collectors;*/
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * @author alecs
@@ -22,7 +22,7 @@ public class BasicLambdas {
 	/**
 	 * demo code
 	 */
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		String[] words = { "SmoothStack", "cat", "Bill", "eight" };
 		System.out.println(Arrays.stream(words).collect(Collectors.joining(", ")));
 		// sort shortest to longest
@@ -45,6 +45,6 @@ public class BasicLambdas {
 		// same with static helper method
 		Arrays.sort(words, (s1, s2) -> containsE(s1, s2));
 		System.out.println(Arrays.stream(words).collect(Collectors.joining(", ")));
-	}*/
+	}
 
 }

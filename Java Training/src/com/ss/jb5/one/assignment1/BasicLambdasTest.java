@@ -33,6 +33,8 @@ class BasicLambdasTest {
 		Arrays.sort(words, (str1, str2) -> str1.toLowerCase().charAt(0) - str2.toLowerCase().charAt(0));
 		assertEquals("Bell,cat,eight,SmoothStack", Arrays.stream(words).collect(Collectors.joining(",")));
 		// put strings containing an e first
+		//Arrays.sort(words, (str1, str2) -> (str1.toLowerCase().contains("e") && str2.toLowerCase().contains("e")) ? 0
+		//		: str1.toLowerCase().contains("e") ? -1 : 1); //one line version
 		Arrays.sort(words, (str1, str2) -> {
 			if (str1.toLowerCase().contains("e") && str2.toLowerCase().contains("e"))
 				return 0;
